@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from telegram import Bot, ParseMode
 from telegram.error import TelegramError
 from forex_python.converter import CurrencyRates
+from forex_python.bitcoin import BtcConverter
 
 # Function to get weather information
 def get_weather(api_key, city):
@@ -19,7 +20,8 @@ def get_exchange_rates():
     c = CurrencyRates()
     usd_rate = c.get_rate('USD', 'RUB')
     eur_rate = c.get_rate('EUR', 'RUB')
-    btc_rate =  # Add a method to get Bitcoin rate
+    b = BtcConverter()
+    btc_rate = b.get_latest_price('USD') 
 
     return usd_rate, eur_rate, btc_rate
 
