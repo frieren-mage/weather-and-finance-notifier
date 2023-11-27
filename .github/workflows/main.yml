@@ -20,7 +20,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests beautifulsoup4 pytz python-telegram-bot forex-python
+        pip install requests beautifulsoup4 pytz python-telegram-bot==13.7 forex-python
 
     - name: Run Python script
       run: python script.py
