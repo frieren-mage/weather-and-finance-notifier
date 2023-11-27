@@ -3,7 +3,8 @@ import requests
 import datetime
 from pytz import timezone
 from bs4 import BeautifulSoup
-from telegram import Bot, ParseMode
+from telegram import Bot
+from telegram import constants
 from telegram.error import TelegramError
 from forex_python.converter import CurrencyRates
 from forex_python.bitcoin import BtcConverter
@@ -34,7 +35,7 @@ def get_days_until_halving():
 def send_telegram_message(bot_token, chat_id, message):
     bot = Bot(token=bot_token)
     try:
-        bot.send_message(chat_id=chat_id, text=message, parse_mode=ParseMode.MARKDOWN)
+        bot.send_message(chat_id=chat_id, text=message, parse_mode=constants.ParseMode.MARKDOWN)
     except TelegramError as e:
         print(f"Error sending Telegram message: {e}")
 
